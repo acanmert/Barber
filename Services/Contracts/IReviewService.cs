@@ -12,7 +12,11 @@ namespace Services.Contracts
     {
         Task<IEnumerable<Review>> GetAllReviewsAsync();
         Task<Review> GetReviewByIdAsync(int reviewId);
+        Task<Review> GetOneByReviewIdAndChechExits(int reviewId, bool trackChanges);
+        Task<IEnumerable<Review>> GetReviewByUserIdAsync(int userId, bool trackChanges);
+        Task<IEnumerable<Review>> GetReviewsByBarberIdAsync(int barberId, bool trackChanges);
         Task CreateReviewAsync(ReviewDtoForInsertion reviewDto);
+
         Task UpdateReview(int id,ReviewDtoForInsertion reviewDto,bool trackChanges);
         Task DeleteReview(int id,bool trackChanges);
     }

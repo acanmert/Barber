@@ -12,6 +12,7 @@ namespace Services.Contracts
     {
         Task<IEnumerable<Barber>> GetAllBarbersAsync();
         Task<Barber> GetBarberByIdAsync(int barberId);
+        Task<Barber> GetOneBarberByIdAndChechExits(int id, bool trackChanges);
         Task<Barber> CreateBarberAsync(BarberDtoForInsertion barberDto);
         Task UpdateBarber(int id,BarberDtoForInsertion barberDto, bool trackChanges);
         Task DeleteBarber(int id, bool trackChanges);

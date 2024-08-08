@@ -12,6 +12,7 @@ namespace Repositories.Contracts
         Task<IEnumerable<Review>> GetAllReviewsAsync(bool trackChanges);
         Task<IEnumerable<Review>> GetReviewsByUserIdAsync(int userId, bool trackChanges);
         Task<IEnumerable<Review>> GetReviewsByServiceIdAsync(int serviceId, bool trackChanges);
+        Task<IEnumerable<Review>> GetReviewsByBarberIdAsync(int serviceId, bool trackChanges);
         Task<Review> GetReviewByIdAsync(int reviewId, bool trackChanges);
         Task CreateReviewAsync(Review review);
         void UpdateReview(Review review);

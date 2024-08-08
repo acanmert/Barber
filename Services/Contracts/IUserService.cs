@@ -12,6 +12,7 @@ namespace Services.Contracts
     {
         Task<IEnumerable<User>> GetAllUsersAsync();
         Task<User> GetUserByEmailAsync(string email, bool trackChanges);
+        Task<User> GetOneUserByIdAndChechExits(int id,bool trackChanges);
         Task<User> GetUserByIdAsync(int userId);
         Task<User> CreateUserAsync(UserDtoForInsertion userDto);
         Task UpdateUser(int id, UserDtoForInsertion userDto, bool trackChanges);

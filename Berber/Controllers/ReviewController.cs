@@ -51,5 +51,18 @@ namespace Berber.Controllers
             await _services.ReviewService.DeleteReview(id, false);
             return NoContent(); // 204 No Content döner, çünkü başarıyla silindiğinde içeriğe gerek yok.
         }
+
+        [HttpGet("user/{userId:int}")]
+        public async Task<IActionResult> GetReviewByUserId([FromRoute]int userId)
+        {
+            var reviews = await _services.ReviewService.GetReviewByUserIdAsync(userId, false);
+            return Ok(reviews);
+        }
+        [HttpGet("barber/{barberId:int}")]
+        public async Task<IActionResult> GetReviewByBarberId([FromRoute]int barberId)
+        {
+            var reviews = await _services.ReviewService.GetReviewsByBarberIdAsync(barberId, false);
+            return Ok(reviews);
+        }
     }
 }

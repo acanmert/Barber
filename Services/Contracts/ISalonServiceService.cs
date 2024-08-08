@@ -12,6 +12,7 @@ namespace Services.Contracts
     {
         Task<IEnumerable<SalonService>> GetAllServicesAsync();
         Task<SalonService> GetServiceByIdAsync(int serviceId);
+        Task<SalonService> GetOneSalonServiceByIdAndChechExits(int id, bool trackChanges);
         Task CreateServiceAsync(SalonServiceDtoForInsertion salonServiceDto);
         Task UpdateService(int id, SalonServiceDtoForInsertion salonServiceDto, bool trackChanges);
         Task DeleteService(int id, bool trackChanges);

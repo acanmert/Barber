@@ -51,5 +51,18 @@ namespace Berber.Controllers
             await _services.AppointmentService.DeleteAppointment(id, false);
             return NoContent(); // 204 No Content döner, çünkü başarıyla silindiğinde içeriğe gerek yok.
         }
+
+        [HttpGet("user/{userId:int}")]
+        public async Task<IActionResult> GetAppointentsByUserId([FromRoute] int userId)
+        {
+            
+            return Ok(await _services.AppointmentService.GetAppointmentByUserIdAsync(userId, false));
+        }
+        [HttpGet("barber/{barberId:int}")]
+        public async Task<IActionResult> GetAppointentsByBarberId([FromRoute] int barberId)
+        {
+            
+            return Ok(await _services.AppointmentService.GetAppointmentByBarberIdAsync(barberId, false));
+        }
     }
 }

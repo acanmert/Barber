@@ -13,6 +13,12 @@ namespace Services.Contracts
     {
         Task<IEnumerable<Appointment>> GetAllAppointmentsAsync();
         Task<Appointment> GetAppointmentByIdAsync(int appointmentId);
+        Task<IEnumerable<Appointment>> GetAppointmentByUserIdAsync(int userId, bool trackChanges);
+        Task<Appointment> GetOneAppointmentByIdAndChechExits(int appointmentId, bool trackChanges);
+
+
+        Task<IEnumerable<Appointment>> GetAppointmentByBarberIdAsync(int barberId,bool trackChanges);
+
         Task CreateAppointmentAsync(AppointmentDtoForInsertion appointmentDto);
         Task UpdateAppointment(int id,AppointmentDtoForInsertion appointmentDto, bool trackChanges);
         Task DeleteAppointment(int id, bool trackChanges);

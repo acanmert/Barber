@@ -51,5 +51,10 @@ namespace Repositories.EfCore
         {
             return await FindAll(trackChanges).OrderBy(d => d.Date).ToListAsync();
         }
+
+        public async Task<IEnumerable<Review>> GetReviewsByBarberIdAsync(int barberId, bool trackChanges)
+        
+          =>  await FindByCondition(r=>r.BarberId== barberId, trackChanges).ToListAsync();
+        
     }
 }

@@ -7,7 +7,7 @@ namespace Entities.Models
         public int Id { get; set; }
         public string Content { get; set; }
         public int Rating { get; set; }
-        public DateTime Date { get; set; }
+        public DateTime Date { get; set; }= DateTime.Now;
         public int UserId { get; set; }  
         public User User { get; set; }
         public int ServiceId { get; set; }  
