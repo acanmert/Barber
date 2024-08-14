@@ -33,14 +33,14 @@ namespace Services.Implementations
             return await _repositoryManager.User.GetUserByIdAsync(userId, trackChanges: false);
         }
 
-        public async Task<User> CreateUserAsync(UserDtoForInsertion userDto)
+        public async Task<User> CreateUserAsync(UserForRegistrationDto userDto)
         {
             var entity=_mapper.Map<User>(userDto);
             await _repositoryManager.User.CreateUserAsync(entity);
             return entity;
         }
 
-        public async Task UpdateUser(int id,UserDtoForInsertion userDto, bool trackChanges)
+        public async Task UpdateUser(int id,UserForRegistrationDto userDto, bool trackChanges)
         {
             var entity = await GetOneUserByIdAndChechExits(id,false);
             _mapper.Map(userDto, entity);

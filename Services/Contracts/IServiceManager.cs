@@ -13,5 +13,8 @@ namespace Services.Contracts
         IReviewService ReviewService { get; }
         ISalonServiceService SalonServiceService { get; }
         IBarberService BarberService { get; }
+        IAuthenticationService AuthenticationService{ get; }
+
+
     }
 }

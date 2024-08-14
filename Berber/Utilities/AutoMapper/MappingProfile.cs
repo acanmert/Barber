@@ -8,7 +8,7 @@ namespace Berber.Utilities.AutoMapper
     {
         public MappingProfile()
         {
-            CreateMap<UserDtoForInsertion, User>();
+            CreateMap<UserForRegistrationDto, User>();
             CreateMap<BarberDtoForInsertion, Barber>();
             CreateMap<SalonServiceDtoForInsertion, SalonService>();
             CreateMap<ReviewDtoForInsertion,Review>();

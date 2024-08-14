@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Entities.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Repositories.Contracts;
 using Repositories.EfCore;
 using Services.Contracts;
@@ -27,7 +29,25 @@ namespace Berber.Extensions
             services.AddScoped<IReviewService, ReviewManager>();
             services.AddScoped<ISalonServiceService, SalonServiceManager>();
             services.AddScoped<IBarberService, BarberManager>();
+            services.AddScoped<IAuthenticationService, AuthenticationManager>();
 
+
+        }
+        public static void ConfigureIdentity(this IServiceCollection services)
+        {
+            var builder = services.AddIdentity<User, IdentityRole>(opts =>
+            {
+                opts.Password.RequireDigit = true;
+                opts.Password.RequireLowercase = false;
+                opts.Password.RequireNonAlphanumeric = false;
+                opts.Password.RequireUppercase = false;
+                opts.Password.RequiredLength = 6;
+
+                opts.User.RequireUniqueEmail = true;
+
+            })
+                .AddEntityFrameworkStores<RepositoryContext>()
+                .AddDefaultTokenProviders();
 
         }
     }

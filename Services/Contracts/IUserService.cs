@@ -14,8 +14,8 @@ namespace Services.Contracts
         Task<User> GetUserByEmailAsync(string email, bool trackChanges);
         Task<User> GetOneUserByIdAndChechExits(int id,bool trackChanges);
         Task<User> GetUserByIdAsync(int userId);
-        Task<User> CreateUserAsync(UserDtoForInsertion userDto);
-        Task UpdateUser(int id, UserDtoForInsertion userDto, bool trackChanges);
+        Task<User> CreateUserAsync(UserForRegistrationDto userDto);
+        Task UpdateUser(int id, UserForRegistrationDto userDto, bool trackChanges);
         Task DeleteUser(int id, bool trackChanges);
     }
 }

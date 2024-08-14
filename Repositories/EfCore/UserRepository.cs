@@ -19,7 +19,7 @@ namespace Repositories.EfCore
          await FindAll(trackChanges).ToListAsync();
 
         public async Task<User> GetUserByIdAsync(int userId, bool trackChanges) =>
-            await FindByCondition(u => u.Id == userId, trackChanges).FirstOrDefaultAsync();
+            await FindByCondition(u => u.Id.Equals(userId), trackChanges).FirstOrDefaultAsync();
 
         public async Task<User> GetUserByEmailAsync(string email, bool trackChanges) =>
             await FindByCondition(u => u.Email == email, trackChanges).FirstOrDefaultAsync();

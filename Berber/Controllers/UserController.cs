@@ -29,13 +29,13 @@ namespace Berber.Controllers
             return Ok(await _services.UserService.GetUserByEmailAsync(email, false));
         }
         [HttpPost]
-        public async Task<IActionResult> CreateUser([FromBody] UserDtoForInsertion userDto)
+        public async Task<IActionResult> CreateUser([FromBody] UserForRegistrationDto userDto)
         {
             var user = await _services.UserService.CreateUserAsync(userDto);
             return Ok(user);
         }
         [HttpPut("{id:int}")]
-        public async Task<IActionResult> UpdateUser([FromRoute] int id, [FromBody] UserDtoForInsertion userDto)
+        public async Task<IActionResult> UpdateUser([FromRoute] int id, [FromBody] UserForRegistrationDto userDto)
         {
             await _services.UserService.UpdateUser(id, userDto, false);
             return Ok(userDto);
